@@ -1,0 +1,50 @@
+25-Mar-2020 21:40:34.183 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.50
+25-Mar-2020 21:40:34.190 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 6 2020 22:09:40 UTC
+25-Mar-2020 21:40:34.190 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.50.0
+25-Mar-2020 21:40:34.190 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-Mar-2020 21:40:34.190 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.14.165-103.209.amzn1.x86_64
+25-Mar-2020 21:40:34.191 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-Mar-2020 21:40:34.191 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre
+25-Mar-2020 21:40:34.191 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_232-b09
+25-Mar-2020 21:40:34.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+25-Mar-2020 21:40:34.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/share/tomcat8
+25-Mar-2020 21:40:34.192 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/share/tomcat8
+25-Mar-2020 21:40:34.192 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+25-Mar-2020 21:40:34.318 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-Mar-2020 21:40:34.339 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+25-Mar-2020 21:40:34.356 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+25-Mar-2020 21:40:34.357 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+25-Mar-2020 21:40:34.357 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 750 ms
+25-Mar-2020 21:40:34.388 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-Mar-2020 21:40:34.389 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.50
+25-Mar-2020 21:40:34.402 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/var/lib/tomcat8/webapps/ROOT]
+25-Mar-2020 21:40:43.817 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-Mar-2020 21:40:43.870 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/lib/tomcat8/webapps/ROOT] has finished in [9,467] ms
+25-Mar-2020 21:40:43.873 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-Mar-2020 21:40:43.889 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+25-Mar-2020 21:40:43.893 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 9535 ms
+25-Mar-2020 21:56:23.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/8.5.50
+25-Mar-2020 21:56:23.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jan 6 2020 22:09:40 UTC
+25-Mar-2020 21:56:23.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 8.5.50.0
+25-Mar-2020 21:56:23.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+25-Mar-2020 21:56:23.110 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.14.165-103.209.amzn1.x86_64
+25-Mar-2020 21:56:23.111 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+25-Mar-2020 21:56:23.111 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.232.b09-0.48.amzn1.x86_64/jre
+25-Mar-2020 21:56:23.111 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_232-b09
+25-Mar-2020 21:56:23.111 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+25-Mar-2020 21:56:23.111 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/share/tomcat8
+25-Mar-2020 21:56:23.112 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/share/tomcat8
+25-Mar-2020 21:56:23.112 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib]
+25-Mar-2020 21:56:23.232 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+25-Mar-2020 21:56:23.256 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+25-Mar-2020 21:56:23.282 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+25-Mar-2020 21:56:23.283 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+25-Mar-2020 21:56:23.289 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 743 ms
+25-Mar-2020 21:56:23.325 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+25-Mar-2020 21:56:23.325 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.5.50
+25-Mar-2020 21:56:23.345 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/var/lib/tomcat8/webapps/ROOT]
+25-Mar-2020 21:56:32.083 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+25-Mar-2020 21:56:32.134 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/var/lib/tomcat8/webapps/ROOT] has finished in [8,788] ms
+25-Mar-2020 21:56:32.136 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+25-Mar-2020 21:56:32.143 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+25-Mar-2020 21:56:32.145 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 8856 ms

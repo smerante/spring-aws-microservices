@@ -1,0 +1,957 @@
+[2020-03-25T21:39:36.980Z] INFO  [2221]  - [Initialization] : Starting activity...
+[2020-03-25T21:39:36.980Z] INFO  [2221]  - [Initialization/AddonsBefore] : Starting activity...
+[2020-03-25T21:39:36.980Z] INFO  [2221]  - [Initialization/AddonsBefore/InstallCWLAgent] : Starting activity...
+[2020-03-25T21:39:36.980Z] INFO  [2221]  - [Initialization/AddonsBefore/InstallCWLAgent/01-install-cwl-agent.sh] : Starting activity...
+[2020-03-25T21:39:39.308Z] INFO  [2221]  - [Initialization/AddonsBefore/InstallCWLAgent/01-install-cwl-agent.sh] : Completed activity. Result:
+  + grep -iq 'Amazon Linux' /etc/issue
+  + yum install -y awslogs
+  Loaded plugins: priorities, update-motd, upgrade-helper
+  Repodata is over 2 weeks old. Install yum-cron? Or run: yum makecache fast
+  Resolving Dependencies
+  --> Running transaction check
+  ---> Package awslogs.noarch 0:1.1.4-1.12.amzn1 will be installed
+  --> Processing Dependency: aws-cli-plugin-cloudwatch-logs(python27) for package: awslogs-1.1.4-1.12.amzn1.noarch
+  --> Running transaction check
+  ---> Package aws-cli-plugin-cloudwatch-logs.noarch 0:1.4.4-1.16.amzn1 will be installed
+  --> Finished Dependency Resolution
+  
+  Dependencies Resolved
+  
+  ================================================================================
+   Package                          Arch     Version            Repository   Size
+  ================================================================================
+  Installing:
+   awslogs                          noarch   1.1.4-1.12.amzn1   amzn-main   9.2 k
+  Installing for dependencies:
+   aws-cli-plugin-cloudwatch-logs   noarch   1.4.4-1.16.amzn1   amzn-main    71 k
+  
+  Transaction Summary
+  ================================================================================
+  Install  1 Package (+1 Dependent package)
+  
+  Total download size: 81 k
+  Installed size: 246 k
+  Downloading packages:
+  --------------------------------------------------------------------------------
+  Total                                              248 kB/s |  81 kB  00:00     
+  Running transaction check
+  Running transaction test
+  Transaction test succeeded
+  Running transaction
+    Installing : aws-cli-plugin-cloudwatch-logs-1.4.4-1.16.amzn1.noarch       1/2 
+    Installing : awslogs-1.1.4-1.12.amzn1.noarch                              2/2 
+    Verifying  : awslogs-1.1.4-1.12.amzn1.noarch                              1/2 
+    Verifying  : aws-cli-plugin-cloudwatch-logs-1.4.4-1.16.amzn1.noarch       2/2 
+  
+  Installed:
+    awslogs.noarch 0:1.1.4-1.12.amzn1                                             
+  
+  Dependency Installed:
+    aws-cli-plugin-cloudwatch-logs.noarch 0:1.4.4-1.16.amzn1                      
+  
+  Complete!
+  + cat
+  ++ curl 169.254.169.254/latest/meta-data/placement/availability-zone
+  ++ sed 's/.$//'
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    10  100    10    0     0  10000      0 --:--:-- --:--:-- --:--:-- 10000
+  + region=us-east-1
+  + sed -i -e 's/region = .*/region = us-east-1/g' /etc/awslogs/awscli.conf
+  + /opt/elasticbeanstalk/bin/log-conf -n awslogs -l/var/log/awslogs.log
+[2020-03-25T21:39:39.308Z] INFO  [2221]  - [Initialization/AddonsBefore/InstallCWLAgent] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logstreaming/hooks/install.
+[2020-03-25T21:39:39.308Z] INFO  [2221]  - [Initialization/AddonsBefore] : Completed activity.
+[2020-03-25T21:39:39.308Z] INFO  [2221]  - [Initialization/PreInitStage0] : Starting activity...
+[2020-03-25T21:39:39.308Z] INFO  [2221]  - [Initialization/PreInitStage0/DownloadSourceBundle] : Starting activity...
+[2020-03-25T21:39:40.033Z] INFO  [2221]  - [Initialization/PreInitStage0/DownloadSourceBundle] : Completed activity. Result:
+  [2020-03-25T21:39:39.389Z] INFO  [2289]  : Application version will be saved to /opt/elasticbeanstalk/deploy/appsource.
+  [2020-03-25T21:39:39.389Z] INFO  [2289]  : Using manifest cache with deployment ID 1 and serial 1.
+  [2020-03-25T21:39:39.389Z] INFO  [2289]  : Attempting to download application source bundle to: '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+  [2020-03-25T21:39:39.389Z] INFO  [2289]  : Using computed s3 key.
+  [2020-03-25T21:39:39.478Z] INFO  [2289]  : Downloading from bucket 'elasticbeanstalk-us-east-1-973590021417' with key 'resources/environments/e-zy8qehshrv/_runtime/_versions/todo-webapp/todo-webapp-v1' and version '' to '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+  [2020-03-25T21:39:39.577Z] INFO  [2289]  : Size: 42174344, ETag: "180459c401b685cbd75d34529a06be7c", Metadata: {"environmentid"=>"e-zy8qehshrv", "requestid"=>"e804323b-b60f-4159-abbd-53408c496d61"}.
+  [2020-03-25T21:39:40.025Z] INFO  [2289]  : Downloaded size: 42174344.
+  [2020-03-25T21:39:40.025Z] INFO  [2289]  : Successfully downloaded to '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+[2020-03-25T21:39:40.034Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook] : Starting activity...
+[2020-03-25T21:39:40.034Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/00installpackages.sh] : Starting activity...
+[2020-03-25T21:39:40.185Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/00installpackages.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k java_version
+  + JAVA_VERSION=8
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + is_baked tomcat_packages
+  + [[ -f /etc/elasticbeanstalk/baking_manifest/tomcat_packages ]]
+  + true
+  + echo tomcat and related packages have already been installed. Skipping installation.
+  tomcat and related packages have already been installed. Skipping installation.
+  + chsh -s /sbin/nologin tomcat
+  chsh: Shell not changed.
+  Changing shell for tomcat.
+  + case $JAVA_VERSION in
+  + is_baked java8_jre
+  + [[ -f /etc/elasticbeanstalk/baking_manifest/java8_jre ]]
+  + true
+  + echo Java8 JRE has already been installed. Skipping installation.
+  Java8 JRE has already been installed. Skipping installation.
+[2020-03-25T21:39:40.185Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01_install_proxy.sh] : Starting activity...
+[2020-03-25T21:39:40.648Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01_install_proxy.sh] : Completed activity. Result:
+  Executing: /bin/chown root:apache /var/run/httpd
+  
+  Executing: /bin/chmod 755 /var/run/httpd
+  
+  Executing: /bin/chown apache:apache /var/log/httpd
+  
+  Executing: /bin/chmod 755 /var/log/httpd
+  
+[2020-03-25T21:39:40.648Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01_install_xray_daemon.sh] : Starting activity...
+[2020-03-25T21:39:40.736Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01_install_xray_daemon.sh] : Completed activity. Result:
+  Executing: /bin/chown -R xray:xray /var/log/xray
+  
+[2020-03-25T21:39:40.736Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01logs.sh] : Starting activity...
+[2020-03-25T21:39:40.945Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/01logs.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + [[ -n true ]]
+  + rm -rf /var/log/tomcat8
+  + mkdir -p /var/log/tomcat8
+  + chown -R tomcat:tomcat /var/log/tomcat8
+  + /opt/elasticbeanstalk/bin/log-conf -ntomcat8 '-l/var/log/tomcat8/*'
+  + /opt/elasticbeanstalk/bin/log-conf -nhttpd '-l/var/log/httpd/*' -f /opt/elasticbeanstalk/containerfiles/httpd.logrotate.conf
+  + /opt/elasticbeanstalk/bin/log-conf -t bundlelogs -n monit '-l/var/log/monit*'
+  + echo 'Removing tomcat internal log rotation.'
+  Removing tomcat internal log rotation.
+  + /bin/sed -i -e 's|prefix="localhost_access_log.*$|prefix="localhost_access_log" suffix=".txt" rotatable="false"|' /etc/tomcat8/server.xml
+  + echo 'Setting logArgs, logProps and logEnv for VersionLoggerListener.'
+  Setting logArgs, logProps and logEnv for VersionLoggerListener.
+  + /bin/sed -i -e 's|className="org.apache.catalina.startup.VersionLoggerListener"\s*/>$|className="org.apache.catalina.startup.VersionLoggerListener" \
+  logArgs="false" logEnv="false" logProps="false" />|' /etc/tomcat8/server.xml
+  + echo 'Removing default tomcat logrotate.'
+  Removing default tomcat logrotate.
+  + /bin/rm -f /etc/logrotate.d/tomcat8
+  + echo 'Removing default httpd logrotate.'
+  Removing default httpd logrotate.
+  + /bin/rm -f /etc/logrotate.d/httpd
+  + echo 'Removing extra log file.'
+  Removing extra log file.
+  + sed -i '/.handlers = 1catalina.org.apache.juli.FileHandler, java.util.logging.ConsoleHandle/c \
+  .handlers = java.util.logging.ConsoleHandler' /etc/tomcat8/logging.properties
+  + sed -i '/org.apache.catalina.core.ContainerBase.\[Catalina\].\[localhost\].handlers = 2localhost.org.apache.juli.FileHandler/c \
+  org.apache.catalina.core.ContainerBase.[Catalina].[localhost].handlers = java.util.logging.ConsoleHandler' /etc/tomcat8/logging.properties
+[2020-03-25T21:39:40.945Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/02misc.sh] : Starting activity...
+[2020-03-25T21:39:41.029Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/02misc.sh] : Completed activity. Result:
+  + [[ -n true ]]
+  + echo 'Running preinit'
+  Running preinit
+  + preinit
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + TOMCAT_HOME=/usr/share/tomcat8
+  + TOMCAT_CONF_HOME=/etc/tomcat8
+  + SET_LIMIT_SH=/etc/elasticbeanstalk/set-ulimit.sh
+  + echo 'Patching Tomcat 8 startup scripts'
+  Patching Tomcat 8 startup scripts
+  + '[' -f /opt/elasticbeanstalk/containerfiles/tomcat-elasticbeanstalk ']'
+  + echo 'Installing tomcat-elasticbeanstalk script'
+  Installing tomcat-elasticbeanstalk script
+  + /bin/mv /opt/elasticbeanstalk/containerfiles/tomcat-elasticbeanstalk /usr/sbin
+  + /bin/chown root:root /usr/sbin/tomcat-elasticbeanstalk
+  + /bin/chmod 755 /usr/sbin/tomcat-elasticbeanstalk
+  + echo 'Fixing Tomcat 8 init.d script'
+  Fixing Tomcat 8 init.d script
+  + /bin/sed -i -e 's/\/usr\/sbin\/tomcat8/\/usr\/sbin\/tomcat-elasticbeanstalk/g' /etc/init.d/tomcat8
+  + cat /etc/init.d/tomcat8
+  + grep -q /etc/elasticbeanstalk/set-ulimit.sh
+  + sed -i '/function start() {/a \ \ \ if [ -f /etc/elasticbeanstalk/set-ulimit.sh ]; then . /etc/elasticbeanstalk/set-ulimit.sh; fi' /etc/init.d/tomcat8
+  + echo 'Adding X-Forwarded-Proto valve'
+  Adding X-Forwarded-Proto valve
+  + /bin/sed -i -e '/<\/Host>/ i\
+      <Valve className="org.apache.catalina.valves.RemoteIpValve" protocolHeader="X-Forwarded-Proto" internalProxies="10\\.\\d+\\.\\d+\\.\\d+|192\\.168\\.\\d+\\.\\d+|169\\.254\\.\\d+\\.\\d+|127\\.\\d+\\.\\d+\\.\\d+|172\\.(1[6-9]|2[0-9]|3[0-1])\\.\\d+\\.\\d+" \/>
+  ' /etc/tomcat8/server.xml
+  + echo 'Setting UTF-8 support'
+  Setting UTF-8 support
+  + grep -q 'Elastic Beanstalk' /etc/tomcat8/server.xml
+  + sed -i '1 a\<!-- Elastic Beanstalk Maintained -->' /etc/tomcat8/server.xml
+  + sed -i 's/<Connector port=\"8080\" protocol=\"HTTP\/1.1\"/&\n               URIEncoding="UTF-8"/g' /etc/tomcat8/server.xml
+  + ln -sf /usr/share/java/apache-commons-pool.jar /usr/share/tomcat8/lib/
+[2020-03-25T21:39:41.029Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/03processmgrsetup.sh] : Starting activity...
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook/03processmgrsetup.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + MONIT_TOMCAT_CONF=monit-tomcat8.conf
+  + /bin/cp -f /opt/elasticbeanstalk/containerfiles/monit-tomcat8.conf /etc/monit.d/
+  + chmod 0600 /etc/monit.d/monit-tomcat8.conf
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization/PreInitStage0/PreInitHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/preinit.
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization/PreInitStage0] : Completed activity. Result:
+  Initialization - Command CMD-PreInit stage 0 completed
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization/AddonsAfter] : Starting activity...
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization/AddonsAfter] : Completed activity.
+[2020-03-25T21:39:41.104Z] INFO  [2221]  - [Initialization] : Completed activity. Result:
+  Initialization - Command CMD-PreInit succeeded
+[2020-03-25T21:40:27.298Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1] : Starting activity...
+[2020-03-25T21:40:27.298Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore] : Starting activity...
+[2020-03-25T21:40:27.298Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore/ConfigCWLAgent] : Starting activity...
+[2020-03-25T21:40:27.298Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore/ConfigCWLAgent/10-config.sh] : Starting activity...
+[2020-03-25T21:40:27.397Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore/ConfigCWLAgent/10-config.sh] : Completed activity. Result:
+  Log streaming option setting is not specified, ignore cloudwatch logs setup.
+  
+  Disabled log streaming.
+[2020-03-25T21:40:27.397Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore/ConfigCWLAgent] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logstreaming/hooks/config.
+[2020-03-25T21:40:27.397Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsBefore] : Completed activity.
+[2020-03-25T21:40:27.681Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0] : Starting activity...
+[2020-03-25T21:40:27.681Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdLogRotation] : Starting activity...
+[2020-03-25T21:40:27.686Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdLogRotation] : Completed activity. Result:
+  ["/etc/cron.hourly/cron.logrotate.elasticbeanstalk.healthd.conf"]
+[2020-03-25T21:40:27.686Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdHTTPDLogging] : Starting activity...
+[2020-03-25T21:40:27.687Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdHTTPDLogging] : Completed activity.
+[2020-03-25T21:40:27.687Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdNginxLogging] : Starting activity...
+[2020-03-25T21:40:27.687Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/HealthdNginxLogging] : Completed activity.
+[2020-03-25T21:40:27.687Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPreBuild] : Starting activity...
+[2020-03-25T21:40:27.976Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPreBuild/Infra-EmbeddedPreBuild] : Starting activity...
+[2020-03-25T21:40:27.976Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPreBuild/Infra-EmbeddedPreBuild] : Completed activity.
+[2020-03-25T21:40:27.989Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPreBuild] : Completed activity.
+[2020-03-25T21:40:27.990Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook] : Starting activity...
+[2020-03-25T21:40:27.990Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/01_configure_xray.sh] : Starting activity...
+[2020-03-25T21:40:28.074Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/01_configure_xray.sh] : Completed activity.
+[2020-03-25T21:40:28.074Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/01clean.sh] : Starting activity...
+[2020-03-25T21:40:28.148Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/01clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  + rm -rf /tmp/deployment/application/ROOT
+  + mkdir -p /tmp/deployment/application/ROOT
+[2020-03-25T21:40:28.148Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/02unzip.sh] : Starting activity...
+[2020-03-25T21:40:28.531Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/02unzip.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k source_bundle
+  + EB_SOURCE_BUNDLE=/opt/elasticbeanstalk/deploy/appsource/source_bundle
+  + /usr/bin/unzip -o -d /tmp/deployment/application/ROOT /opt/elasticbeanstalk/deploy/appsource/source_bundle
+  Archive:  /opt/elasticbeanstalk/deploy/appsource/source_bundle
+     creating: /tmp/deployment/application/ROOT/META-INF/
+    inflating: /tmp/deployment/application/ROOT/META-INF/MANIFEST.MF  
+     creating: /tmp/deployment/application/ROOT/org/
+     creating: /tmp/deployment/application/ROOT/org/springframework/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$DataInputStream.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/AsciiBytes.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/ExecutableArchiveLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/LaunchedURLClassLoader$UseFastConnectionExceptionsEnumeration.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$FileAccess.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarEntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries$EntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/WarLauncher.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/util/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/util/SystemPropertyUtils.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryFileHeader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessData.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/Bytes.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryEndRecord.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/ZipInflaterInputStream.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection$JarEntryName.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryParser.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/Handler.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive$EntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntryIterator$EntryComparator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive$EntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive$JarFileEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$PrefixMatchingArchiveFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$ArchiveEntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$2.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$JarFileType.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive$Entry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/MainMethodRunner.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/JarLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/Launcher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/LaunchedURLClassLoader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/FileHeader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/StringSequence.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryVisitor.class  
+     creating: /tmp/deployment/application/ROOT/WEB-INF/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/model/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/security/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/jsp/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/lib/
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/application.properties  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/TodoRepository.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/navigation.jspf  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/bootstrap-datepicker-1.0.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/byte-buddy-1.9.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-tx-5.1.2.RELEASE.jar  
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/
+    inflating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/pom.xml  
+    inflating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/pom.properties  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/ErrorController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/TodoService.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/todo.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/h2-1.4.197.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-core-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-web-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/LogoutController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/SpringBootFirstWebApplication.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/data.sql  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/antlr-2.7.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/HikariCP-3.2.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-databind-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-expression-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-jcl-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-jdbc-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/validation-api-2.0.1.Final.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/TodoController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/welcome.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-core-5.3.7.Final.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/WelcomeController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/footer.jspf  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/header.jspf  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/bootstrap-3.3.6.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-annotations-2.9.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-datatype-jdk8-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-datatype-jsr310-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-module-parameter-names-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jandex-2.0.5.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.activation-api-1.2.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.annotation-api-1.3.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.persistence-api-2.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.transaction-api-1.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jaxb-api-2.3.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jquery-1.9.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/log4j-api-2.11.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/logback-core-1.2.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-aop-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-data-jpa-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-jdbc-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-json-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-logging-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-security-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-web-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-context-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-orm-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-webmvc-5.1.2.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/EnvironmentConfigurationLogger.class  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/aspectjweaver-1.9.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-autoconfigure-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-config-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/model/Todo.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/error.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/classmate-1.4.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-commons-annotations-5.0.4.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-validator-6.0.13.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jboss-logging-3.3.2.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jstl-1.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/slf4j-api-1.7.25.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/snakeyaml-1.23.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-aspects-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-beans-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-data-jpa-2.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-core-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/security/SecurityConfiguration.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/list-todos.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/dom4j-2.1.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-core-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javassist-3.23.1-GA.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/log4j-to-slf4j-2.11.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/logback-classic-1.2.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-aop-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-devtools-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-data-commons-2.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-web-5.1.2.RELEASE.jar  
+     creating: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-jasper-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-core-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-annotations-api-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-el-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/ecj-3.13.102.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/spring-boot-starter-tomcat-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-websocket-9.0.12.jar  
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f
+  ++ wc -l
+  + FILE_COUNT=0
+  ++ ls /tmp/deployment/application/ROOT --almost-all
+  ++ wc -l
+  + ITEM_COUNT=3
+  + [[ 0 == 0 ]]
+  + [[ 3 == 1 ]]
+[2020-03-25T21:40:28.531Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/03_configure_proxy.sh] : Starting activity...
+[2020-03-25T21:40:29.116Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/03_configure_proxy.sh] : Completed activity. Result:
+  Executing: /bin/chown root:apache /var/run/httpd
+  
+  Executing: /bin/chmod 755 /var/run/httpd
+  
+  Executing: /bin/chown apache:apache /var/log/httpd
+  
+  Executing: /bin/chmod 755 /var/log/httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/log-conf -n httpd -l'/var/log/httpd/*'
+  
+  Executing: /usr/sbin/apachectl -t -f /var/elasticbeanstalk/staging/httpd/conf/httpd.conf
+  Syntax OK
+[2020-03-25T21:40:29.116Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/03config_clean.sh] : Starting activity...
+[2020-03-25T21:40:29.191Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/03config_clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_staging_dir
+  + EB_CONFIG_STAGING_DIR=/tmp/deployment/config
+  + rm -rf /tmp/deployment/config
+  + mkdir -p /tmp/deployment/config
+[2020-03-25T21:40:29.191Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/04config_generate.sh] : Starting activity...
+[2020-03-25T21:40:29.433Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook/04config_generate.sh] : Completed activity. Result:
+  + /opt/elasticbeanstalk/containerfiles/generate_config
+[2020-03-25T21:40:29.433Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/AppDeployPreHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/pre.
+[2020-03-25T21:40:29.433Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPostBuild] : Starting activity...
+[2020-03-25T21:40:29.722Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Starting activity...
+[2020-03-25T21:40:29.722Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Completed activity.
+[2020-03-25T21:40:29.735Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/EbExtensionPostBuild] : Completed activity.
+[2020-03-25T21:40:29.735Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/InfraCleanEbExtension] : Starting activity...
+[2020-03-25T21:40:29.736Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0/InfraCleanEbExtension] : Completed activity. Result:
+  Cleaned ebextensions subdirectories from /tmp/deployment/application/ROOT.
+[2020-03-25T21:40:29.736Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage0] : Completed activity. Result:
+  Application deployment - Command CMD-Startup stage 0 completed
+[2020-03-25T21:40:29.736Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1] : Starting activity...
+[2020-03-25T21:40:29.737Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook] : Starting activity...
+[2020-03-25T21:40:29.737Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/01stop.sh] : Starting activity...
+[2020-03-25T21:40:29.821Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/01stop.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + /etc/init.d/tomcat8 status
+  tomcat8 is stopped
+  [  OK  ]
+[2020-03-25T21:40:29.821Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/01stop_xray.sh] : Starting activity...
+[2020-03-25T21:40:31.914Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/01stop_xray.sh] : Completed activity. Result:
+  Executing: if ( initctl status xray | grep start ); then initctl stop xray; fi
+  xray start/running, process 1632
+  xray stop/waiting
+[2020-03-25T21:40:31.914Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/02clean.sh] : Starting activity...
+[2020-03-25T21:40:32.067Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/02clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_deploy_dir
+  + EB_APP_DEPLOY_DIR=/var/lib/tomcat8/webapps/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + mkdir -p /var/lib/tomcat8/webapps/ROOT
+  ++ readlink -f /var/lib/tomcat8/webapps/ROOT/..
+  + EB_APP_DEPLOY_BASE_DIR=/var/lib/tomcat8/webapps
+  + rm -rf /var/lib/tomcat8/webapps/ROOT
+  + rm -rf '/usr/share/tomcat8/conf/Catalina/localhost/*'
+  + rm -rf '/usr/share/tomcat8/work/Catalina/*'
+  + mkdir -p /var/lib/tomcat8/webapps/ROOT
+[2020-03-25T21:40:32.068Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/02start_xray.sh] : Starting activity...
+[2020-03-25T21:40:32.151Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/02start_xray.sh] : Completed activity.
+[2020-03-25T21:40:32.151Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/03_stop_proxy.sh] : Starting activity...
+[2020-03-25T21:40:32.523Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/03_stop_proxy.sh] : Completed activity. Result:
+  Executing: service nginx stop
+  
+  Executing: service httpd stop
+  Stopping httpd: [FAILED]
+[2020-03-25T21:40:32.523Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/03deploy.sh] : Starting activity...
+[2020-03-25T21:40:32.704Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/03deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_deploy_dir
+  + EB_APP_DEPLOY_DIR=/var/lib/tomcat8/webapps/ROOT
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f -not -path '*/\.*'
+  ++ wc -l
+  + FILE_COUNT=0
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f
+  ++ grep -Pi '\.war$'
+  ++ echo ''
+  + WAR_FILES=
+  + WAR_FILE_COUNT=0
+  + [[ 0 > 0 ]]
+  ++ readlink -f /var/lib/tomcat8/webapps/ROOT/../
+  + EB_APP_DEPLOY_BASE=/var/lib/tomcat8/webapps
+  + rm -rf /var/lib/tomcat8/webapps/ROOT
+  + [[ 0 == 0 ]]
+  + [[ 0 > 1 ]]
+  + cp -R /tmp/deployment/application/ROOT /var/lib/tomcat8/webapps/ROOT
+  + chown -R tomcat:tomcat /var/lib/tomcat8/webapps
+[2020-03-25T21:40:32.704Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/04config_deploy.sh] : Starting activity...
+[2020-03-25T21:40:32.923Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/04config_deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_staging_dir
+  + EB_CONFIG_STAGING_DIR=/tmp/deployment/config
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_deploy_dir
+  + EB_CONFIG_DEPLOY_DIR=/etc/sysconfig
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_filename
+  + EB_CONFIG_FILENAME=tomcat8
+  + cp /tmp/deployment/config/tomcat8 /etc/sysconfig/tomcat8
+[2020-03-25T21:40:32.923Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/05start.sh] : Starting activity...
+[2020-03-25T21:40:33.099Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/05start.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + /etc/init.d/tomcat8 status
+  tomcat8 is stopped
+  [  OK  ]+ /etc/init.d/tomcat8 start
+  Starting tomcat8: [  OK  ]+ /usr/bin/monit monitor tomcat
+  monit: generated unique Monit id 196abc473c1dfb241ae5d160e4a41a5c and stored to '/root/.monit.id'
+[2020-03-25T21:40:33.099Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/09_start_proxy.sh] : Starting activity...
+[2020-03-25T21:40:35.477Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook/09_start_proxy.sh] : Completed activity. Result:
+  Executing: service httpd stop
+  Stopping httpd: [FAILED]
+  Executing: service httpd start
+  Starting httpd: [  OK  ]
+  Executing: /bin/chmod 755 /var/run/httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-track-pidfile --proxy httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-configure --appstat-log-path /var/log/httpd/healthd/application.log --appstat-unit usec --appstat-timestamp-on 'arrival'
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-restart
+  
+[2020-03-25T21:40:35.477Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployEnactHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/enact.
+[2020-03-25T21:40:35.477Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployPostHook] : Starting activity...
+[2020-03-25T21:40:35.478Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployPostHook/03monitor_pids.sh] : Starting activity...
+[2020-03-25T21:40:35.941Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployPostHook/03monitor_pids.sh] : Completed activity.
+[2020-03-25T21:40:35.941Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/AppDeployPostHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/post.
+[2020-03-25T21:40:35.941Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/PostInitHook] : Starting activity...
+[2020-03-25T21:40:35.941Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/PostInitHook/01processmgrstart.sh] : Starting activity...
+[2020-03-25T21:40:35.991Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/PostInitHook/01processmgrstart.sh] : Completed activity. Result:
+  + /usr/bin/monit
+[2020-03-25T21:40:35.991Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1/PostInitHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/postinit.
+[2020-03-25T21:40:35.991Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/StartupStage1] : Completed activity. Result:
+  Application deployment - Command CMD-Startup stage 1 completed
+[2020-03-25T21:40:35.991Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter] : Starting activity...
+[2020-03-25T21:40:35.992Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter/ConfigLogRotation] : Starting activity...
+[2020-03-25T21:40:35.992Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter/ConfigLogRotation/10-config.sh] : Starting activity...
+[2020-03-25T21:40:36.239Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter/ConfigLogRotation/10-config.sh] : Completed activity. Result:
+  Disabled forced hourly log rotation.
+[2020-03-25T21:40:36.239Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter/ConfigLogRotation] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logpublish/hooks/config.
+[2020-03-25T21:40:36.239Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1/AddonsAfter] : Completed activity.
+[2020-03-25T21:40:36.239Z] INFO  [2501]  - [Application deployment todo-webapp-v1@1] : Completed activity. Result:
+  Application deployment - Command CMD-Startup succeeded
+[2020-03-25T21:47:43.440Z] INFO  [3306]  - [CMD-TailLogs] : Starting activity...
+[2020-03-25T21:47:43.441Z] INFO  [3306]  - [CMD-TailLogs/AddonsBefore] : Starting activity...
+[2020-03-25T21:47:43.441Z] INFO  [3306]  - [CMD-TailLogs/AddonsBefore] : Completed activity.
+[2020-03-25T21:47:43.441Z] INFO  [3306]  - [CMD-TailLogs/TailLogs] : Starting activity...
+[2020-03-25T21:47:43.441Z] INFO  [3306]  - [CMD-TailLogs/TailLogs/TailLogs] : Starting activity...
+[2020-03-25T21:47:44.105Z] INFO  [3306]  - [CMD-TailLogs/TailLogs/TailLogs] : Completed activity.
+[2020-03-25T21:47:44.107Z] INFO  [3306]  - [CMD-TailLogs/TailLogs] : Completed activity. Result:
+  CMD-TailLogs - stage 0 - Command CMD-TailLogs stage 0 completed
+[2020-03-25T21:47:44.108Z] INFO  [3306]  - [CMD-TailLogs/AddonsAfter] : Starting activity...
+[2020-03-25T21:47:44.108Z] INFO  [3306]  - [CMD-TailLogs/AddonsAfter] : Completed activity.
+[2020-03-25T21:47:44.108Z] INFO  [3306]  - [CMD-TailLogs] : Completed activity. Result:
+  CMD-TailLogs - Command CMD-TailLogs succeeded
+[2020-03-25T21:56:16.553Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2] : Starting activity...
+[2020-03-25T21:56:16.554Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore] : Starting activity...
+[2020-03-25T21:56:16.554Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore/ConfigCWLAgent] : Starting activity...
+[2020-03-25T21:56:16.556Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore/ConfigCWLAgent/10-config.sh] : Starting activity...
+[2020-03-25T21:56:16.720Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore/ConfigCWLAgent/10-config.sh] : Completed activity. Result:
+  Log streaming option setting is not specified, ignore cloudwatch logs setup.
+  
+  Disabled log streaming.
+[2020-03-25T21:56:16.721Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore/ConfigCWLAgent] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logstreaming/hooks/config.
+[2020-03-25T21:56:16.721Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsBefore] : Completed activity.
+[2020-03-25T21:56:17.275Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0] : Starting activity...
+[2020-03-25T21:56:17.275Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/DownloadSourceBundle] : Starting activity...
+[2020-03-25T21:56:18.030Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/DownloadSourceBundle] : Completed activity. Result:
+  [2020-03-25T21:56:17.362Z] INFO  [3577]  : Application version will be saved to /opt/elasticbeanstalk/deploy/appsource.
+  [2020-03-25T21:56:17.362Z] INFO  [3577]  : Using manifest cache with deployment ID 2 and serial 2.
+  [2020-03-25T21:56:17.362Z] INFO  [3577]  : Attempting to download application source bundle to: '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+  [2020-03-25T21:56:17.362Z] INFO  [3577]  : Using computed s3 key.
+  [2020-03-25T21:56:17.465Z] INFO  [3577]  : Downloading from bucket 'elasticbeanstalk-us-east-1-973590021417' with key 'resources/environments/e-zy8qehshrv/_runtime/_versions/todo-webapp/todo-webapp-h2-v1' and version '' to '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+  [2020-03-25T21:56:17.595Z] INFO  [3577]  : Size: 42174342, ETag: "c47cadec87e11ed80bec18f9791b0901", Metadata: {"environmentid"=>"e-zy8qehshrv", "requestid"=>"a6d815db-0892-49d8-9233-15962aafbcc7"}.
+  [2020-03-25T21:56:18.021Z] INFO  [3577]  : Downloaded size: 42174342.
+  [2020-03-25T21:56:18.021Z] INFO  [3577]  : Successfully downloaded to '/opt/elasticbeanstalk/deploy/appsource/source_bundle'.
+[2020-03-25T21:56:18.030Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPreBuild] : Starting activity...
+[2020-03-25T21:56:18.337Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPreBuild/Infra-EmbeddedPreBuild] : Starting activity...
+[2020-03-25T21:56:18.337Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPreBuild/Infra-EmbeddedPreBuild] : Completed activity.
+[2020-03-25T21:56:18.351Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPreBuild] : Completed activity.
+[2020-03-25T21:56:18.351Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook] : Starting activity...
+[2020-03-25T21:56:18.354Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/01_configure_xray.sh] : Starting activity...
+[2020-03-25T21:56:18.446Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/01_configure_xray.sh] : Completed activity.
+[2020-03-25T21:56:18.446Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/01clean.sh] : Starting activity...
+[2020-03-25T21:56:18.551Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/01clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  + rm -rf /tmp/deployment/application/ROOT
+  + mkdir -p /tmp/deployment/application/ROOT
+[2020-03-25T21:56:18.551Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/02unzip.sh] : Starting activity...
+[2020-03-25T21:56:18.929Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/02unzip.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k source_bundle
+  + EB_SOURCE_BUNDLE=/opt/elasticbeanstalk/deploy/appsource/source_bundle
+  + /usr/bin/unzip -o -d /tmp/deployment/application/ROOT /opt/elasticbeanstalk/deploy/appsource/source_bundle
+  Archive:  /opt/elasticbeanstalk/deploy/appsource/source_bundle
+     creating: /tmp/deployment/application/ROOT/META-INF/
+    inflating: /tmp/deployment/application/ROOT/META-INF/MANIFEST.MF  
+     creating: /tmp/deployment/application/ROOT/org/
+     creating: /tmp/deployment/application/ROOT/org/springframework/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$DataInputStream.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/AsciiBytes.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/ExecutableArchiveLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/LaunchedURLClassLoader$UseFastConnectionExceptionsEnumeration.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$FileAccess.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarEntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries$EntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/WarLauncher.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/util/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/util/SystemPropertyUtils.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessDataFile.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryFileHeader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/data/RandomAccessData.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/Bytes.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryEndRecord.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/ZipInflaterInputStream.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection$JarEntryName.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarURLConnection.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryParser.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/Handler.class  
+     creating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive$EntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntryIterator$EntryComparator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$FileEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/ExplodedArchive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive$EntryIterator.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive$JarFileEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/JarFileArchive.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$PrefixMatchingArchiveFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$ArchiveEntryFilter.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher$1.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/PropertiesLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$2.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile$JarFileType.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/archive/Archive$Entry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFile.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/MainMethodRunner.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/JarLauncher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarEntry.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/Launcher.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/LaunchedURLClassLoader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/FileHeader.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/JarFileEntries.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/StringSequence.class  
+    inflating: /tmp/deployment/application/ROOT/org/springframework/boot/loader/jar/CentralDirectoryVisitor.class  
+     creating: /tmp/deployment/application/ROOT/WEB-INF/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/model/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/security/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/jsp/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/
+     creating: /tmp/deployment/application/ROOT/WEB-INF/lib/
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/application.properties  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/TodoRepository.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/error.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/byte-buddy-1.9.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-config-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/ErrorController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/service/TodoService.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/list-todos.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/classmate-1.4.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-core-5.3.7.Final.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/LogoutController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/SpringBootFirstWebApplication.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/welcome.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/h2-1.4.197.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-autoconfigure-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-web-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/TodoController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/data.sql  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/antlr-2.7.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-annotations-2.9.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-databind-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-aop-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-core-5.1.2.RELEASE.jar  
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/
+     creating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/
+    inflating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/pom.xml  
+    inflating: /tmp/deployment/application/ROOT/META-INF/maven/com.in28minutes.springboot.web/03-spring-boot-web-application-h2/pom.properties  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/controller/WelcomeController.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/footer.jspf  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/aspectjweaver-1.9.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-expression-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-orm-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-web-5.1.2.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/EnvironmentConfigurationLogger.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/header.jspf  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/bootstrap-3.3.6.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-datatype-jdk8-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-datatype-jsr310-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-module-parameter-names-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jandex-2.0.5.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.activation-api-1.2.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.annotation-api-1.3.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.persistence-api-2.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javax.transaction-api-1.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jaxb-api-2.3.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jboss-logging-3.3.2.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jquery-1.9.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/log4j-api-2.11.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/logback-core-1.2.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-aop-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-data-jpa-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-jdbc-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-json-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-logging-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-security-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-starter-web-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-context-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-security-core-5.1.1.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/model/Todo.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/common/navigation.jspf  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/bootstrap-datepicker-1.0.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-commons-annotations-5.0.4.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/hibernate-validator-6.0.13.Final.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jstl-1.2.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/slf4j-api-1.7.25.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/snakeyaml-1.23.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-boot-devtools-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-data-commons-2.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-webmvc-5.1.2.RELEASE.jar  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/classes/com/in28minutes/springboot/web/security/SecurityConfiguration.class  
+    inflating: /tmp/deployment/application/ROOT/WEB-INF/jsp/todo.jsp  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/dom4j-2.1.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/HikariCP-3.2.0.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/jackson-core-2.9.7.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/javassist-3.23.1-GA.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/log4j-to-slf4j-2.11.1.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/logback-classic-1.2.3.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-aspects-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-beans-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-data-jpa-2.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-jcl-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-jdbc-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/spring-tx-5.1.2.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib/validation-api-2.0.1.Final.jar  
+     creating: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-jasper-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-core-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-annotations-api-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-el-9.0.12.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/ecj-3.13.102.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/spring-boot-starter-tomcat-2.1.0.RELEASE.jar  
+   extracting: /tmp/deployment/application/ROOT/WEB-INF/lib-provided/tomcat-embed-websocket-9.0.12.jar  
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f
+  ++ wc -l
+  + FILE_COUNT=0
+  ++ ls /tmp/deployment/application/ROOT --almost-all
+  ++ wc -l
+  + ITEM_COUNT=3
+  + [[ 0 == 0 ]]
+  + [[ 3 == 1 ]]
+[2020-03-25T21:56:18.929Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/03_configure_proxy.sh] : Starting activity...
+[2020-03-25T21:56:19.918Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/03_configure_proxy.sh] : Completed activity. Result:
+  Executing: /bin/chown root:apache /var/run/httpd
+  
+  Executing: /bin/chmod 755 /var/run/httpd
+  
+  Executing: /bin/chown apache:apache /var/log/httpd
+  
+  Executing: /bin/chmod 755 /var/log/httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/log-conf -n httpd -l'/var/log/httpd/*'
+  
+  Executing: /usr/sbin/apachectl -t -f /var/elasticbeanstalk/staging/httpd/conf/httpd.conf
+  Syntax OK
+[2020-03-25T21:56:19.918Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/03config_clean.sh] : Starting activity...
+[2020-03-25T21:56:19.994Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/03config_clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_staging_dir
+  + EB_CONFIG_STAGING_DIR=/tmp/deployment/config
+  + rm -rf /tmp/deployment/config
+  + mkdir -p /tmp/deployment/config
+[2020-03-25T21:56:19.994Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/04config_generate.sh] : Starting activity...
+[2020-03-25T21:56:20.235Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook/04config_generate.sh] : Completed activity. Result:
+  + /opt/elasticbeanstalk/containerfiles/generate_config
+[2020-03-25T21:56:20.235Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/AppDeployPreHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/pre.
+[2020-03-25T21:56:20.235Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPostBuild] : Starting activity...
+[2020-03-25T21:56:20.520Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Starting activity...
+[2020-03-25T21:56:20.520Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPostBuild/Infra-EmbeddedPostBuild] : Completed activity.
+[2020-03-25T21:56:20.532Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/EbExtensionPostBuild] : Completed activity.
+[2020-03-25T21:56:20.532Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/InfraCleanEbextension] : Starting activity...
+[2020-03-25T21:56:20.534Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0/InfraCleanEbextension] : Completed activity. Result:
+  Cleaned ebextensions subdirectories from /tmp/deployment/application/ROOT.
+[2020-03-25T21:56:20.534Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage0] : Completed activity. Result:
+  Application update - Command CMD-AppDeploy stage 0 completed
+[2020-03-25T21:56:20.534Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1] : Starting activity...
+[2020-03-25T21:56:20.534Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook] : Starting activity...
+[2020-03-25T21:56:20.537Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/01stop.sh] : Starting activity...
+[2020-03-25T21:56:20.621Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/01stop.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + /etc/init.d/tomcat8 status
+  PID file exists, but process is not running[WARNING]
+[2020-03-25T21:56:20.621Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/01stop_xray.sh] : Starting activity...
+[2020-03-25T21:56:20.712Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/01stop_xray.sh] : Completed activity. Result:
+  Executing: if ( initctl status xray | grep start ); then initctl stop xray; fi
+  
+[2020-03-25T21:56:20.712Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/02clean.sh] : Starting activity...
+[2020-03-25T21:56:20.878Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/02clean.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_deploy_dir
+  + EB_APP_DEPLOY_DIR=/var/lib/tomcat8/webapps/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + mkdir -p /var/lib/tomcat8/webapps/ROOT
+  ++ readlink -f /var/lib/tomcat8/webapps/ROOT/..
+  + EB_APP_DEPLOY_BASE_DIR=/var/lib/tomcat8/webapps
+  + rm -rf /var/lib/tomcat8/webapps/ROOT
+  + rm -rf '/usr/share/tomcat8/conf/Catalina/localhost/*'
+  + rm -rf /usr/share/tomcat8/work/Catalina/localhost
+  + mkdir -p /var/lib/tomcat8/webapps/ROOT
+[2020-03-25T21:56:20.878Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/02start_xray.sh] : Starting activity...
+[2020-03-25T21:56:20.960Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/02start_xray.sh] : Completed activity.
+[2020-03-25T21:56:20.961Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/03_stop_proxy.sh] : Starting activity...
+[2020-03-25T21:56:21.446Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/03_stop_proxy.sh] : Completed activity. Result:
+  Executing: service nginx stop
+  
+  Executing: service httpd stop
+  Stopping httpd: [  OK  ]
+[2020-03-25T21:56:21.446Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/03deploy.sh] : Starting activity...
+[2020-03-25T21:56:21.650Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/03deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_staging_dir
+  + EB_APP_STAGING_DIR=/tmp/deployment/application/ROOT
+  ++ /opt/elasticbeanstalk/bin/get-config container -k app_deploy_dir
+  + EB_APP_DEPLOY_DIR=/var/lib/tomcat8/webapps/ROOT
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f -not -path '*/\.*'
+  ++ wc -l
+  + FILE_COUNT=0
+  ++ find /tmp/deployment/application/ROOT -maxdepth 1 -type f
+  ++ grep -Pi '\.war$'
+  ++ echo ''
+  + WAR_FILES=
+  + WAR_FILE_COUNT=0
+  + [[ 0 > 0 ]]
+  ++ readlink -f /var/lib/tomcat8/webapps/ROOT/../
+  + EB_APP_DEPLOY_BASE=/var/lib/tomcat8/webapps
+  + rm -rf /var/lib/tomcat8/webapps/ROOT
+  + [[ 0 == 0 ]]
+  + [[ 0 > 1 ]]
+  + cp -R /tmp/deployment/application/ROOT /var/lib/tomcat8/webapps/ROOT
+  + chown -R tomcat:tomcat /var/lib/tomcat8/webapps
+[2020-03-25T21:56:21.651Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/04config_deploy.sh] : Starting activity...
+[2020-03-25T21:56:21.871Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/04config_deploy.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_staging_dir
+  + EB_CONFIG_STAGING_DIR=/tmp/deployment/config
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_deploy_dir
+  + EB_CONFIG_DEPLOY_DIR=/etc/sysconfig
+  ++ /opt/elasticbeanstalk/bin/get-config container -k config_filename
+  + EB_CONFIG_FILENAME=tomcat8
+  + cp /tmp/deployment/config/tomcat8 /etc/sysconfig/tomcat8
+[2020-03-25T21:56:21.871Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/05start.sh] : Starting activity...
+[2020-03-25T21:56:22.044Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/05start.sh] : Completed activity. Result:
+  ++ /opt/elasticbeanstalk/bin/get-config container -k tomcat_version
+  + TOMCAT_VERSION=8.5
+  + '[' 8.5 == 8.5 ']'
+  + TOMCAT_VERSION=8
+  + TOMCAT_NAME=tomcat8
+  + /etc/init.d/tomcat8 status
+  PID file exists, but process is not running[WARNING]+ /etc/init.d/tomcat8 start
+  Starting tomcat8: [  OK  ]+ /usr/bin/monit monitor tomcat
+[2020-03-25T21:56:22.044Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/09_start_proxy.sh] : Starting activity...
+[2020-03-25T21:56:24.415Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook/09_start_proxy.sh] : Completed activity. Result:
+  Executing: service httpd stop
+  Stopping httpd: [FAILED]
+  Executing: service httpd start
+  Starting httpd: [  OK  ]
+  Executing: /bin/chmod 755 /var/run/httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-track-pidfile --proxy httpd
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-configure --appstat-log-path /var/log/httpd/healthd/application.log --appstat-unit usec --appstat-timestamp-on 'arrival'
+  
+  Executing: /opt/elasticbeanstalk/bin/healthd-restart
+  
+[2020-03-25T21:56:24.415Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployEnactHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/enact.
+[2020-03-25T21:56:24.416Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployPostHook] : Starting activity...
+[2020-03-25T21:56:24.417Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployPostHook/03monitor_pids.sh] : Starting activity...
+[2020-03-25T21:56:24.810Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployPostHook/03monitor_pids.sh] : Completed activity.
+[2020-03-25T21:56:24.810Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1/AppDeployPostHook] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/hooks/appdeploy/post.
+[2020-03-25T21:56:24.810Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AppDeployStage1] : Completed activity. Result:
+  Application version switch - Command CMD-AppDeploy stage 1 completed
+[2020-03-25T21:56:24.810Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter] : Starting activity...
+[2020-03-25T21:56:24.810Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter/ConfigLogRotation] : Starting activity...
+[2020-03-25T21:56:24.811Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter/ConfigLogRotation/10-config.sh] : Starting activity...
+[2020-03-25T21:56:25.032Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter/ConfigLogRotation/10-config.sh] : Completed activity. Result:
+  Disabled forced hourly log rotation.
+[2020-03-25T21:56:25.032Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter/ConfigLogRotation] : Completed activity. Result:
+  Successfully execute hooks in directory /opt/elasticbeanstalk/addons/logpublish/hooks/config.
+[2020-03-25T21:56:25.032Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2/AddonsAfter] : Completed activity.
+[2020-03-25T21:56:25.032Z] INFO  [3498]  - [Application update todo-webapp-h2-v1@2] : Completed activity. Result:
+  Application update - Command CMD-AppDeploy succeeded
+[2020-03-25T22:09:23.799Z] INFO  [4622]  - [CMD-BundleLogs] : Starting activity...
+[2020-03-25T22:09:23.800Z] INFO  [4622]  - [CMD-BundleLogs/AddonsBefore] : Starting activity...
+[2020-03-25T22:09:23.800Z] INFO  [4622]  - [CMD-BundleLogs/AddonsBefore] : Completed activity.
+[2020-03-25T22:09:23.800Z] INFO  [4622]  - [CMD-BundleLogs/BundleLogs] : Starting activity...
+[2020-03-25T22:09:23.800Z] INFO  [4622]  - [CMD-BundleLogs/BundleLogs/BundleLogs] : Starting activity...

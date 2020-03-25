@@ -1,0 +1,12 @@
+[UTC Mar 25 21:40:33] info     : monit: generated unique Monit id 196abc473c1dfb241ae5d160e4a41a5c and stored to '/root/.monit.id'
+[UTC Mar 25 21:40:35] info     : Starting monit HTTP server at [localhost:2812]
+[UTC Mar 25 21:40:35] info     : monit HTTP server started
+[UTC Mar 25 21:40:35] info     : 'system_ip-172-31-44-235.ec2.internal' Monit started
+[UTC Mar 25 21:56:15] error    : 'tomcat' process with pid 2818 is a zombie
+[UTC Mar 25 21:56:22] info     : monitor service 'tomcat' on user request
+[UTC Mar 25 21:56:22] info     : monit daemon at 3015 awakened
+[UTC Mar 25 21:56:22] info     : Awakened by User defined signal 1
+[UTC Mar 25 21:56:22] info     : 'tomcat' monitor action done
+[UTC Mar 25 21:56:52] info     : 'tomcat' check process state succeeded
+[UTC Mar 25 21:56:52] error    : 'tomcat' process PID changed from 2818 to 3869
+[UTC Mar 25 21:57:22] info     : 'tomcat' process PID has not changed since last cycle

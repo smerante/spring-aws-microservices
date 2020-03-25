@@ -1,0 +1,2 @@
+[Wed Mar 25 21:56:15.385090 2020] [proxy_http:error] [pid 2883:tid 139759049475840] (20014)Internal error (specific information not available): [client 218.21.171.107:57182] AH01102: error reading status line from remote server localhost:8080
+[Wed Mar 25 21:56:15.386342 2020] [proxy:error] [pid 2883:tid 139759049475840] [client 218.21.171.107:57182] AH00898: Error reading from remote server returned by /GponForm/diag_Form

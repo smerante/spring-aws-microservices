@@ -12,7 +12,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.inMemoryAuthentication().withUser("in28minutes").password("{noop}dummy")
+        auth.inMemoryAuthentication().withUser("sam").password("{noop}sam")
                 .roles("USER", "ADMIN");
     }
 	

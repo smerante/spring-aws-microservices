@@ -1,0 +1,19 @@
+2020-03-25 21:47:43,753 [INFO] (3311 MainThread) [tailLogs.py-56] [root tailLogs main] Starting tail logs task with batch id e2f0a4b2-de06-4033-a43a-05c96ae27f82
+2020-03-25 21:47:43,762 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/localhost.2020-03-25.log
+2020-03-25 21:47:43,766 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/httpd/elasticbeanstalk-access_log
+2020-03-25 21:47:43,766 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/manager.2020-03-25.log
+2020-03-25 21:47:43,768 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/localhost_access_log.txt
+2020-03-25 21:47:43,769 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/httpd/error_log
+2020-03-25 21:47:43,771 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/catalina.2020-03-25.log
+2020-03-25 21:47:43,771 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/host-manager.2020-03-25.log
+2020-03-25 21:47:43,771 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/tomcat8-initd.log
+2020-03-25 21:47:43,775 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/httpd/access_log
+2020-03-25 21:47:43,777 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/eb-activity.log
+2020-03-25 21:47:43,780 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/eb-commandprocessor.log
+2020-03-25 21:47:43,781 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/httpd/elasticbeanstalk-error_log
+2020-03-25 21:47:43,784 [INFO] (3311 MainThread) [upload_tools.py-293] [root upload_tools execute] Successfully tailed file /var/log/tomcat8/catalina.out
+2020-03-25 21:47:44,064 [INFO] (3311 MainThread) [s3_tools.py-208] [root s3_tools _process_result] Received status code 200 with text: 
+2020-03-25 21:47:44,065 [INFO] (3311 MainThread) [upload_tools.py-317] [root upload_tools __exit__] Successfully uploaded tailed content for 13 files to s3 at location resources/environments/logs/tail/e-zy8qehshrv/i-086294e0af6373aac/TailLogs-1585172863784.out
+2020-03-25 21:47:44,066 [INFO] (3311 MainThread) [tailLogs.py-92] [root tailLogs main] [Instance: i-086294e0af6373aac] Successfully finished tailing 13 log(s)
+2020-03-25 22:09:24,079 [INFO] (4627 MainThread) [bundleLogs.py-54] [root bundleLogs main] Starting bundle logs task with batch id a7494402-2fa5-4825-a30e-f2c72106c3c3
+2020-03-25 22:09:24,097 [INFO] (4627 MainThread) [upload_tools.py-364] [root upload_tools execute] Successfully archived file /var/log/tomcat8/localhost.2020-03-25.log to /tmp/BundleLogs-a7494402-2fa5-4825-a30e-f2c72106c3c3.zip

@@ -1,0 +1,7 @@
+[Wed Mar 25 21:40:33.268876 2020] [ssl:warn] [pid 2878:tid 139759339423808] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Mar 25 21:40:33.269821 2020] [mpm_worker:notice] [pid 2878:tid 139759339423808] AH00292: Apache/2.4.41 (Amazon) OpenSSL/1.0.2k-fips configured -- resuming normal operations
+[Wed Mar 25 21:40:33.269840 2020] [core:notice] [pid 2878:tid 139759339423808] AH00094: Command line: '/usr/sbin/httpd'
+[Wed Mar 25 21:56:21.352097 2020] [mpm_worker:notice] [pid 2878:tid 139759339423808] AH00295: caught SIGTERM, shutting down
+[Wed Mar 25 21:56:22.215116 2020] [ssl:warn] [pid 3929:tid 140597503350848] AH01873: Init: Session Cache is not configured [hint: SSLSessionCache]
+[Wed Mar 25 21:56:22.216065 2020] [mpm_worker:notice] [pid 3929:tid 140597503350848] AH00292: Apache/2.4.41 (Amazon) OpenSSL/1.0.2k-fips configured -- resuming normal operations
+[Wed Mar 25 21:56:22.216085 2020] [core:notice] [pid 3929:tid 140597503350848] AH00094: Command line: '/usr/sbin/httpd'

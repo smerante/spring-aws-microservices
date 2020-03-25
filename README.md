@@ -25,3 +25,25 @@ Spring autoconfigures the entities to h2 tables and uses jpa to insert entries i
 In your EB apps you can navigate to environments and terminate them to release all their resources. 
 
 Up until 6 weeks you can restore terminated environemnts 
+
+
+03 Webapp deploying WAR to aws
+
+In application.properties specifiy the webapp props: 
+spring.mvc.view.prefix: /WEB-INF/jsp/
+spring.mvc.view.suffix: .jsp
+logging.level.: DEBUG
+
+Include dependencies for tomcat-embed-jasper: 
+<dependency>
+ <groupId>org.apache.tomcat.embed</groupId>
+  <artifactId>tomcat-embed-jasper</artifactId>
+  <scope>provided</scope>
+</dependency>
+
+To allow h2 console in app.props, add the following line:
+
+spring.h2.console.settings.web-allow-others=true
+
+Proxy logs when creating a JAR => NGINX
+Proxy logs when creating a WAR => APACHE HTTPD
