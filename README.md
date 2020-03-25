@@ -20,3 +20,8 @@ At application launch spring sees that H2 is a dep and enabled and autowires/con
 JPA Will save and create the db in local memory based on the entities defined 
 
 Spring autoconfigures the entities to h2 tables and uses jpa to insert entries into the table
+
+
+In your EB apps you can navigate to environments and terminate them to release all their resources. 
+
+Up until 6 weeks you can restore terminated environemnts 
