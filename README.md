@@ -105,3 +105,23 @@ VOLUME /tmp
 EXPOSE 5000
 ADD target/*.jar app.jar
 ENTRYPOINT [ "sh", "-c", "java -jar /app.jar" ]
+
+docker run -d -e MYSQL_ROOT_PASSWORD=1234 -e MYSQL_DATABASE=todos -e MYSQL_USER=todos-user -e MYSQL_PASSWORD=123 mysql:5.7
+
+
+msqlsh //starts mysql shell
+\connect todos-user@localhost:3306 //connect to db using port and user name
+\use todos //use todos table as schema 
+\sql //start sql commands
+
+Connnecting to RDS db through elastic beanstalk happens automatically through env variables
+
+To allow inbound/outbound traffic configure security groups on the RDS instance from configuration
+add rule to allow traffic from your IP to test
+
+size of db: 
+
+SELECT table_schema "todos",
+        ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" 
+FROM information_schema.tables 
+GROUP BY table_schema; 
