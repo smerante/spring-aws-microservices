@@ -47,3 +47,61 @@ spring.h2.console.settings.web-allow-others=true
 
 Proxy logs when creating a JAR => NGINX
 Proxy logs when creating a WAR => APACHE HTTPD
+
+
+[Running Docker](https://github.com/in28minutes/docker()
+Running docker container: 
+docker run -p local_port:docker_server_port hub.docker.package:version
+docker run -p 8080:5000 in28min/todo-rest-api-h2:1.0.0.RELEASE
+
+run in detached mode add -d
+docker run -d -p local_port:docker_server_port hub.docker.package:version
+
+Check containers after running them: 
+
+docker container ls -a / /List all container 
+docker container run ##id## // run a container with certain ID
+docker container rm ##id## // remove containers
+docker images
+docker image history ##id## //See all the cmds to create the img
+
+
+docker client -> docker daemon -> pull from hub.docker -> create local image -> create container
+
+Manually build a jar
+docker run -dit openjdk:8-jdk-alpine //-dit detacthed interactive, launches interactable command shell
+docker container cp target/docker-in-5-steps-todo-rest-api-h2-1.0.0.RELEASE.jar ##ID##:/tmp
+docker container exec romantic_aryabhata ls /tmp
+docker container commit romantic_aryabhata in28min/manual-todo-rest-api:v1
+docker container commit --change='CMD ["java","-jar","/tmp/docker-in-5-steps-todo-rest-api-h2-1.0.0.RELEASE.jar"]' romantic_aryabhata in28min/manual-todo-rest-api:v2
+docker run -d -p 5000:5000 in28min/manual-todo-rest-api:v2
+
+To automate this process
+
+1. pom.xml include a mvn pluggin for docker 
+<plugin>
+  <groupId>com.spotify</groupId>
+  <artifactId>dockerfile-maven-plugin</artifactId>
+  <version>1.4.10</version>
+  <executions>
+    <execution>
+      <id>default</id>
+      <goals>
+        <goal>build</goal>
+        <!-- <goal>push</goal> --> 
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <repository>in28min/${project.artifactId}</repository>
+    <tag>${project.version}</tag>
+    <skipDockerInfo>true</skipDockerInfo>
+  </configuration>
+</plugin>
+
+2. Dockerfile
+FROM openjdk:8-jdk-alpine
+VOLUME /tmp
+EXPOSE 5000
+ADD target/*.jar app.jar
+ENTRYPOINT [ "sh", "-c", "java -jar /app.jar" ]
