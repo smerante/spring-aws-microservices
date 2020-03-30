@@ -125,3 +125,16 @@ SELECT table_schema "todos",
         ROUND(SUM(data_length + index_length) / 1024 / 1024, 1) "DB Size in MB" 
 FROM information_schema.tables 
 GROUP BY table_schema; 
+
+
+# Connecting through external DB from EB -> RDS
+Create environment property tags for each key ('RDS_HOSTNAME','RDS_DB_NAME') and set values from DB instance from RDS
+Once you hit apply the env will auto update and restart the war
+
+Update security groups to allow inbound traffic from EB config ec2 security group
+
+To avoid errors when terminating eb env you need to create a new security group in EC2 and add the security group id to it from RDS. 
+
+Go to EB configuration and add the security group to your instance
+
+Go back to EB, and restart to app to make sure it still connects to DB
