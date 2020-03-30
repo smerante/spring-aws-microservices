@@ -138,3 +138,24 @@ To avoid errors when terminating eb env you need to create a new security group 
 Go to EB configuration and add the security group to your instance
 
 Go back to EB, and restart to app to make sure it still connects to DB
+
+
+# Full stack react backend
+To understand JWT and auth more: https://www.springboottutorial.com/spring-boot-react-full-stack-with-spring-security-basic-and-jwt-authentication
+
+When deploying app to S# make sure the region is the same from the EB bucket
+
+You can add a public bucket policy:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AddPerm",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::full-stack-frontend-qa/*"
+        }
+    ]
+}
